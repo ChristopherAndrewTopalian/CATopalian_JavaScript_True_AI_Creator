@@ -5,6 +5,8 @@ True Intelligence (TI) is the creation of the creator of all beings and all thin
 
 Video: https://www.youtube.com/watch?v=egVNMzYIdjU
 
+Use App: https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_Creator/CATopalian_JavaScript_True_AI_Creator.html
+
 ![001](src/media/textures/screenshots/001.PNG)
 
 ![002](src/media/textures/screenshots/002.PNG)
