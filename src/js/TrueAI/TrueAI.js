@@ -7,41 +7,55 @@ class TrueAI
         // base properties
         this.name = info.name;
         this.power = info.power;
+
+        // memory
+        this.currentThought = {
+            inputA: null,
+            inputB: null,
+            result: null,
+            context: null // Description of what this thought represents
+        };
     }
 
-    and(a, b)
+    tautology(a, b)
     {
-        if (a == 1 && b == 1)
+        if ((a == 0 && b == 0) ||
+            (a == 0 && b == 1) ||
+            (a == 1 && b == 0) ||
+            (a == 1 && b == 1))
         {
             return 1;
         }
         else
         {
-            return 0;
+            return 1;
         }
     }
 
     /*
-    AND
-    0001
-    Both True
+    TAUTOLOGY
+    1111
+    One or Both False or True
 
     A  B
-    0  0  =  0
-    0  1  =  0
-    1  0  =  0
+    0  0  =  1
+    0  1  =  1
+    1  0  =  1
     1  1  =  1
 
-    Opposite: NAND
+    Opposite: CONTRADICTION
     */
 
     //----//
 
-    nand(a, b)
+    contradiction(a, b)
     {
-        if (a == 0 || b == 0)
+        if ((a == 0 && b == 0) ||
+            (a == 0 && b == 1) ||
+            (a == 1 && b == 0) ||
+            (a == 1 && b == 1))
         {
-            return 1
+            return 0;
         }
         else
         {
@@ -50,20 +64,18 @@ class TrueAI
     }
 
     /*
-    NAND
-    1110
-    Both False or A True or B True
+    CONTRADICTION
+    0000
+    One or Both False or True.
 
-    A  B
-    0  0  =  1
-    0  1  =  1
-    1  0  =  1
+    A B
+    0  0  =  0
+    0  1  =  0
+    1  0  =  0
     1  1  =  0
 
-    Opposite: AND
+    Opposite: TAUTOLOGY
     */
-
-    //----//
 
     xor(a, b)
     {
@@ -119,6 +131,62 @@ class TrueAI
     1  1  =  1
 
     Opposite: XOR
+    */
+
+    //----//
+
+    and(a, b)
+    {
+        if (a == 1 && b == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    /*
+    AND
+    0001
+    Both True
+
+    A  B
+    0  0  =  0
+    0  1  =  0
+    1  0  =  0
+    1  1  =  1
+
+    Opposite: NAND
+    */
+
+    //----//
+
+    nand(a, b)
+    {
+        if (a == 0 || b == 0)
+        {
+            return 1
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    /*
+    NAND
+    1110
+    Both False or A True or B True
+
+    A  B
+    0  0  =  1
+    0  1  =  1
+    1  0  =  1
+    1  1  =  0
+
+    Opposite: AND
     */
 
     //----//
@@ -179,62 +247,6 @@ class TrueAI
 
     //----//
 
-    ci(a, b)
-    {
-        if (a == 1 || b == 0)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    /*
-    CI
-    1011
-    Both False or A True or Both True
-
-    A B
-    0  0  =  1
-    0  1  =  0
-    1  0  =  1
-    1  1  =  1
-
-    Opposite: CNI
-    */
-
-    //----//
-
-    cni(a, b)
-    {
-        if (a == 0 && b == 1)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    /*
-    CNI
-    0100
-    B True
-
-    A B
-    0  0  =  0
-    0  1  =  1
-    1  0  =  0
-    1  1  =  0
-
-    Opposite: CI
-    */
-
-    //----//
-
     mi(a, b)
     {
         if (a == 0 || b == 1)
@@ -291,9 +303,9 @@ class TrueAI
 
     //----//
 
-    rp(a, b)
+    ci(a, b)
     {
-        if (b == 1)
+        if (a == 1 || b == 0)
         {
             return 1;
         }
@@ -304,45 +316,45 @@ class TrueAI
     }
 
     /*
-    RP
-    0101
-    B True or Both True
-
-    A  B
-    0  0  =  0
-    0  1  =  1
-    1  0  =  0
-    1  1  =  1
-
-    Opposite: RC
-    */
-
-    //----//
-
-    rc(a, b)
-    {
-        if (b == 0)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    /*
-    RC
-    1010
-    Both False or A True
+    CI
+    1011
+    Both False or A True or Both True
 
     A B
     0  0  =  1
     0  1  =  0
     1  0  =  1
+    1  1  =  1
+
+    Opposite: CNI
+    */
+
+    //----//
+
+    cni(a, b)
+    {
+        if (a == 0 && b == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    /*
+    CNI
+    0100
+    B True
+
+    A B
+    0  0  =  0
+    0  1  =  1
+    1  0  =  0
     1  1  =  0
 
-    Opposite: RP
+    Opposite: CI
     */
 
     //----//
@@ -403,45 +415,39 @@ class TrueAI
 
     //----//
 
-    tautology(a, b)
+    rp(a, b)
     {
-        if ((a == 0 && b == 0) ||
-            (a == 0 && b == 1) ||
-            (a == 1 && b == 0) ||
-            (a == 1 && b == 1))
+        if (b == 1)
         {
             return 1;
         }
         else
         {
-            return 1;
+            return 0;
         }
     }
 
     /*
-    TAUTOLOGY
-    1111
-    One or Both False or True
+    RP
+    0101
+    B True or Both True
 
     A  B
-    0  0  =  1
+    0  0  =  0
     0  1  =  1
-    1  0  =  1
+    1  0  =  0
     1  1  =  1
 
-    Opposite: CONTRADICTION
+    Opposite: RC
     */
 
     //----//
 
-    contradiction(a, b)
+    rc(a, b)
     {
-        if ((a == 0 && b == 0) ||
-            (a == 0 && b == 1) ||
-            (a == 1 && b == 0) ||
-            (a == 1 && b == 1))
+        if (b == 0)
         {
-            return 0;
+            return 1;
         }
         else
         {
@@ -450,17 +456,17 @@ class TrueAI
     }
 
     /*
-    CONTRADICTION
-    0000
-    One or Both False or True.
+    RC
+    1010
+    Both False or A True
 
     A B
-    0  0  =  0
+    0  0  =  1
     0  1  =  0
-    1  0  =  0
+    1  0  =  1
     1  1  =  0
 
-    Opposite: TAUTOLOGY
+    Opposite: RP
     */
 }
 

@@ -3,7 +3,7 @@
 let people = [
     {
         name: 'Jane',
-        power: 'Logic'
+        power: 'Logic',
     },
 
     {
