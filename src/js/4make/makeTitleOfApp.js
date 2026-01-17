@@ -4,7 +4,7 @@ function makeTitleOfApp()
 {
     let titleContainer = ce('div');
     titleContainer.style.position = 'absolute';
-    titleContainer.style.right = '0px';
+    titleContainer.style.right = '15px';
     titleContainer.style.top = '4px';
     titleContainer.style.width = '90px';
     titleContainer.style.zIndex = 1;
@@ -17,18 +17,19 @@ function makeTitleOfApp()
     titleOfApp.textContent = 'CATopalian JavaScript True AI Creator';
     titleOfApp.href = 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_True_AI_Creator';
     titleOfApp.target = '_blank';
-    titleOfApp.style.fontSize = '14px';
+    titleOfApp.style.fontSize = '17px';
     titleOfApp.style.fontWeight = 'bold';
     titleOfApp.style.textDecoration = 'none';
     titleOfApp.style.fontFamily = 'Arial';
     titleOfApp.style.color = 'rgb(130, 130, 130)';
+    titleOfApp.style.lineHeight = '13px';
     titleContainer.append(titleOfApp);
 }
 
 //----//
 
 // Dedicated to God the Father
-// All Rights Reserved Christopher Andrew Topalian Copyright 2000-2025
+// All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026
 // https://github.com/ChristopherTopalian
 // https://github.com/ChristopherAndrewTopalian
 // https://sites.google.com/view/CollegeOfScripting
