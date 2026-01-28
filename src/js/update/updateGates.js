@@ -2,6 +2,87 @@
 
 function updateGates()
 {
+    ge('output_tautology').textContent = 'tautology: ' + jane.tautology(A, B);
+
+    ge('output_contradiction').textContent = 'contradiction: ' + jane.contradiction(A, B);
+
+    //-//
+
+    ge('output_xor').textContent = 'xor: ' + jane.xor(A, B);
+
+    ge('output_xnor').textContent = 'xnor: ' + jane.xnor(A, B);
+
+    //-//
+
+    ge('output_and').textContent = 'and: ' + jane.and(A, B);
+
+    ge('output_nand').textContent = 'nand: ' + jane.nand(A, B);
+
+    //-//
+
+    ge('output_or').textContent = 'or: ' + jane.or(A, B);
+
+    ge('output_nor').textContent = 'nor: ' + jane.nor(A, B);
+
+    //-//
+
+    ge('output_mi').textContent = 'mi: ' + jane.mi(A, B);
+
+    ge('output_mni').textContent = 'mni: ' + jane.mni(A, B);
+
+    //-//
+
+    ge('output_ci').textContent = 'ci: ' + jane.ci(A, B);
+
+    ge('output_cni').textContent = 'cni: ' + jane.cni(A, B);
+
+    //-//
+
+    ge('output_lp').textContent = 'lp: ' + jane.lp(A, B);
+
+    ge('output_lc').textContent = 'lc: ' + jane.lc(A, B);
+
+    //-//
+
+    ge('output_rp').textContent = 'rp: ' + jane.rp(A, B);
+
+    ge('output_rc').textContent = 'rc: ' + jane.rc(A, B);
+
+    //-//
+
+    cl(jane.tautology(A, B));
+    cl(jane.contradiction(A, B));
+
+    cl(jane.xor(A, B));
+    cl(jane.xnor(A, B));
+
+    //-//
+
+    cl(jane.and(A, B));
+    cl(jane.nand(A, B));
+
+    cl(jane.or(A, B));
+    cl(jane.nor(A, B));
+
+    //-//
+
+    cl(jane.mi(A, B));
+    cl(jane.mni(A, B));
+
+    cl(jane.ci(A, B));
+    cl(jane.cni(A, B));
+
+    //-//
+
+    cl(jane.lp(A, B));
+    cl(jane.lc(A, B));
+
+    cl(jane.rp(A, B));
+    cl(jane.rc(A, B));
+}
+
+function updateGates2()
+{
     ge('jane_tautology').textContent = 'tautology: ' + jane.tautology(A, B);
 
     ge('jane_contradiction').textContent = 'contradiction: ' + jane.contradiction(A, B);

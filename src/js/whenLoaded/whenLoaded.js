@@ -16,15 +16,15 @@ function whenLoaded()
     */
 
     // es5 (find jane data)
-    let janeFind = people.find(function(p)
-    {
-        return p.name === 'Jane';
-    });
+    //let janeFind = people.find(function(p)
+    //{
+    //    return p.name === 'Jane';
+    //});
 
     //----//
 
     // create jane
-    jane = new TrueAI(janeFind);
+    jane = new TrueAI('Jane', 100);
 
     // if our object is not in an array
     // we can use the object data directly like this

@@ -2,11 +2,15 @@
 
 class TrueAI
 {
-    constructor(info)
+    constructor(name, power)
     {
-        // base properties
-        this.name = info.name;
-        this.power = info.power;
+        // base properties that we must define later
+        this.name = name;
+        this.power = power;
+
+        // these are the properties that start new every time
+        this.memory = [];
+        this.thoughts = [];
 
         // memory
         this.currentThought = {
@@ -468,6 +472,41 @@ class TrueAI
 
     Opposite: RP
     */
+
+    //----//
+
+    think()
+    {
+        // current date and time with seconds
+        let dateTime = new Date().toLocaleString();
+
+        //-//
+
+        // THOUGHT
+
+        let currentThought = 
+        {
+            a: A,
+            b: B,
+            timeCode: dateTime
+        };
+
+        // add currentThought to thought array
+        this.thoughts.unshift(currentThought);
+
+        // show current thought
+        ge('thoughtOutput').textContent = JSON.stringify(this.thoughts[0]);
+
+        //-//
+
+        // MEMORY
+
+        // add current thought to memory
+        this.memory.unshift(this.thoughts[0]);
+
+        // show all memories
+        ge('memoryOutput').textContent = JSON.stringify(this.memory);
+    }
 }
 
 //----//
